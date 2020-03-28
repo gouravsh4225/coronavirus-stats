@@ -1,0 +1,11 @@
+.loading__screen {
+  position: fixed;
+  z-index: 9;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.5);
+}

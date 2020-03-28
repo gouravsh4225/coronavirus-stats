@@ -1,3 +1,7 @@
+<div class="loading__screen" *ngIf="loadingState">
+  <app-loading-screen></app-loading-screen>
+</div>
+
 <div [ngClass]="{'dark-theme': selectedTheme }">
 <app-header (changeThemeEventEmitter)="changeTheme($event)"></app-header>
   <div class="main__content">

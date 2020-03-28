@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultLayoutModule } from './Default-Layout/default-layout/default-layout.module';
 import {ShareModule} from './sharedModule/share-module.module';
-import { CardsComponent } from './Widgets/cards/cards.component' ;
 
 @NgModule({
   declarations: [AppComponent],
