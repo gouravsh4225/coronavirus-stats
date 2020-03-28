@@ -7,8 +7,8 @@ import {CoronaStatsService } from "../../Services/Corona-stats/corona-stats.serv
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  allCountriesDetails = [];
-  allWorldStats=[];
+  allCountriesDetails:any = [];
+  allWorldStats :any=[];
   constructor(private CoronaService:CoronaStatsService) { }
 
   ngOnInit() {
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   }
 
   getTotalWorldStats() {
-    this.CoronaService.getWorldTotalStats().subscribe((res)=>{
+    this.CoronaService.getWorldTotalStats().subscribe((res:any)=>{
       this.allWorldStats = res;
         console.log(res,'res----Totals',this.allWorldStats)
     },error=>{
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   getWorlData(){
-    this.CoronaService.getWorldDetails().subscribe((res)=>{
+    this.CoronaService.getWorldDetails().subscribe((res:any)=>{
       console.log(res,'res')
       this.allCountriesDetails = res.countries_stat;
     },error=>{
