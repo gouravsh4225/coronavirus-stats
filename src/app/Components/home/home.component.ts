@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CoronaStatsService } from "../../Services/Corona-stats/corona-stats.service";
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  allCountriesDetails = [];
+  allWorldStats=[];
+  constructor(private CoronaService:CoronaStatsService) { }
 
   ngOnInit() {
+    this.getWorlData();
+    this.getTotalWorldStats();
   }
 
+  getTotalWorldStats() {
+    this.CoronaService.getWorldTotalStats().subscribe((res)=>{
+      this.allWorldStats = res;
+        console.log(res,'res----Totals',this.allWorldStats)
+    },error=>{
+      console.log('error in total case ')
+    })
+  }
+
+  getWorlData(){
+    this.CoronaService.getWorldDetails().subscribe((res)=>{
+      console.log(res,'res')
+      this.allCountriesDetails = res.countries_stat;
+    },error=>{
+      console.log(error,'error')
+    })
+  }
 }

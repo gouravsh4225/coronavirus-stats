@@ -2,33 +2,16 @@
 
 .main__home {
   margin-top:1rem;
-  .main__banner-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 0 1rem;
-    color: #000000;
-    .main__banner-badge {
-      .main__info-section {
-        display: flex;
-        flex-direction: column;
-      }
-      width: 70%;
-      justify-content: center;
+  width: 100%;
+   .main__info-section {
+     margin:1rem;
       display: flex;
-      align-items: center;
-    }
-    .main__banner-image {
-      width: 30%;
-      height: 30%;
-      img {
-        width: 4rem;
-        height: 4rem;
-        display: block;
-        margin: 0 auto;
-        border-radius: 50%;
-      }
-    }
-
+      flex-wrap: wrap;
+     align-items: center;
+     .world-stats {
+       width: 30%;
+       margin: 1rem 0.5rem;
+     }
   }
+
 }
