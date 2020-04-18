@@ -1,18 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import {CoronaStatsService } from "../../Services/Corona-stats/corona-stats.service";
-import {LoadingService} from "../../Services/loading-service/loading-service.service";
+import { Component, OnInit } from "@angular/core";
+import { CoronaStatsService } from "../../Services/Corona-stats/corona-stats.service";
+import { LoadingService } from "../../Services/loading-service/loading-service.service";
+import { error } from "util";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  allCountriesDetails:any = [];
-  allWorldStatsCopy :any=[];
-  allWorldStats :any=[];
-  anyErrorOccured:boolean= true;
-  constructor(private CoronaService:CoronaStatsService,private loadingScreenService:LoadingService) {
+  allCountriesDetails: any = [];
+  allWorldStatsCopy: any = [];
+  allWorldStats: any = [];
+  allWorldList: any = [];
+  anyErrorOccured: boolean = true;
+  constructor(
+    private CoronaService: CoronaStatsService,
+    private loadingScreenService: LoadingService
+  ) {
     this.loadingScreenService.setLoadingState(true);
   }
 
@@ -20,6 +25,7 @@ export class HomeComponent implements OnInit {
     this.loadingScreenService.setLoadingState(true);
     this.getWorlData();
     this.getTotalWorldStats();
+    this.getAllCountreisList();
   }
 
   /// for loading
@@ -28,25 +34,43 @@ export class HomeComponent implements OnInit {
   }
 
   getTotalWorldStats() {
-    this.CoronaService.getWorldTotalStats().subscribe((res:any)=>{
-      this.loadingState(false);
-      this.anyErrorOccured = false;
-      this.allWorldStatsCopy.push(res);
-      this.allWorldStats =res;
-    },error=>{
-      this.anyErrorOccured = false;
-      console.log('error in total case ')
-    })
+    this.CoronaService.getWorldTotalStats().subscribe(
+      (res: any) => {
+        this.loadingState(false);
+        this.anyErrorOccured = false;
+        this.allWorldStatsCopy.push(res);
+        this.allWorldStats = res;
+      },
+      (error) => {
+        this.anyErrorOccured = false;
+        console.log("error in total case ");
+      }
+    );
   }
 
-  getWorlData(){
-    this.CoronaService.getWorldDetails().subscribe((res:any)=>{
-      this.anyErrorOccured = false;
-      this.loadingState(false);
-      this.allCountriesDetails=res.countries_stat;
-    },error=>{
-      this.anyErrorOccured = false;
-      console.log(error,'error')
-    })
+  getWorlData() {
+    this.CoronaService.getWorldDetails().subscribe(
+      (res: any) => {
+        this.anyErrorOccured = false;
+        this.loadingState(false);
+        this.allCountriesDetails = res.countries_stat;
+      },
+      (error) => {
+        this.anyErrorOccured = false;
+        console.log(error, "error");
+      }
+    );
+  }
+
+  getAllCountreisList() {
+    this.CoronaService.getAllCountries().subscribe(
+      (res: any) => {
+        this.allWorldList = res;
+        console.log("res---", res);
+      },
+      (error) => {
+        console.log("error");
+      }
+    );
   }
 }
