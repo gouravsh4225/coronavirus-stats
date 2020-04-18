@@ -1,0 +1,21 @@
+/* Author name : Gourav Sharma 
+  Software Developer */
+
+@import "./variable";
+@import "./commonClass";
+
+/* Start the Main Scss*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  background: $bgBodyColor;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
