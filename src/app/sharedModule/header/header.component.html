@@ -1,30 +1,30 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row class="text-center">
-    <div class="text-center" style="width: 100%">Coronavirus Stats App</div>
-    <!--<div fxFlex fxLayout="row" fxLayoutAlign="flex-end">-->
-      <!--<ul fxLayout="row" fxLayoutGap="20px">-->
-        <!--<li>-->
-          <!--<button mat-button [matMenuTriggerFor]="darkMenu"-->
-                  <!--matTooltip="Setting"-->
-          <!--&gt;-->
-            <!--<mat-icon>settings</mat-icon>-->
-          <!--</button>-->
-          <!--<mat-menu #darkMenu="matMenu">-->
-            <!--<button mat-menu-item-->
-                    <!--matTooltip='Dark Theme'-->
-                    <!--(click)="changeThemeToggle('dark')">-->
-              <!--<mat-icon>lightbulb</mat-icon>-->
-              <!--<span>Dark Theme</span>-->
-            <!--</button>-->
-              <!--<button-->
-                <!--matTooltip='Light Theme'-->
-                <!--mat-menu-item (click)="changeThemeToggle('light')">-->
-              <!--<mat-icon>lightbulb_outline</mat-icon>-->
-              <!--<span>Light Theme</span>-->
-            <!--</button>-->
-          <!--</mat-menu>-->
-        <!--</li>-->
-      <!--</ul>-->
-    <!--</div>-->
-  </mat-toolbar-row>
-</mat-toolbar>
+<header class="header">
+  <div class="header__main d-flex">
+    <ul class="mouse-point d-flex align-text-center">
+      <div class="header__main-image">
+        <img
+          src="../../../assets/Image/navLog_small.jpg"
+          alt="virusLog"
+          class="img-responsive img-round"
+        />
+      </div>
+      <div class="header__main-text fw-700">
+        Coronavirus (COVID-19)
+      </div>
+    </ul>
+    <div
+      class="header__main-searchFilter mr-auto pl-0 d-flex align-text-center"
+    >
+      <app-SearchFilter></app-SearchFilter>
+    </div>
+    <ul class="header__main-world d-flex align-text-center">
+      <div class="header__main-world-icon">
+        <img
+          src="../../../assets/Image/globeIcon.jpg"
+          class="img-responsive img-round"
+        />
+      </div>
+      <div class="header__main-text fw-400">World</div>
+    </ul>
+  </div>
+</header>

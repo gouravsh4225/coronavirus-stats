@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { CoronaStatsService } from "../../Services/Corona-stats/corona-stats.service";
 import { LoadingService } from "../../Services/loading-service/loading-service.service";
 import { error } from "util";
+import { CountrylistService } from "src/app/Services/Country-list/Country-list-service.service";
 
 @Component({
   selector: "app-home",
@@ -16,7 +17,8 @@ export class HomeComponent implements OnInit {
   anyErrorOccured: boolean = true;
   constructor(
     private CoronaService: CoronaStatsService,
-    private loadingScreenService: LoadingService
+    private loadingScreenService: LoadingService,
+    private countryListService: CountrylistService
   ) {
     this.loadingScreenService.setLoadingState(true);
   }
@@ -66,6 +68,7 @@ export class HomeComponent implements OnInit {
     this.CoronaService.getAllCountries().subscribe(
       (res: any) => {
         this.allWorldList = res;
+        this.countryListService.getCountryList(res);
         console.log("res---", res);
       },
       (error) => {

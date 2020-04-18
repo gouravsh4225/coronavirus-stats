@@ -3,6 +3,7 @@
 
 @import "./variable";
 @import "./commonClass";
+@import "./app/sccs/fonts-5.0/css/all.css";
 
 /* Start the Main Scss*/
 * {
@@ -14,8 +15,20 @@ html,
 body {
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 body {
   background: $bgBodyColor;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: $bgTextColor;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 0.0312rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+ul {
+  list-style: none;
 }

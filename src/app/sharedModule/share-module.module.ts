@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { HeaderComponent } from "./header/header.component";
+import { HeaderComponent } from "./Header/Header.component";
 import { SearchFilterComponent } from "./SearchFilter/SearchFilter.component";
 import { CoronaMatTableComponent } from "./corona-mat-table/corona-mat-table.component";
 import { MaterialModule } from "./material-module.module";

@@ -1,3 +1,36 @@
-ul {
-  list-style: none;
+@import "../../sccs/variable";
+
+.header {
+  box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.8);
+  position: sticky;
+  top: 0px;
+  z-index: 1050;
+  background: $bgBodyColor;
+  .header__main {
+    padding: 10px 0 20px 0;
+    margin: 0 32px;
+    background: transparent;
+    .header__main-searchFilter {
+      padding-inline-start: 40px;
+    }
+    .header__main-world-icon {
+      img {
+        height: 30px;
+        width: 30px;
+      }
+    }
+  }
+}
+
+/// common for this component
+
+.header__main-image img {
+  height: 50px;
+  width: 50px;
+}
+.header__main-text {
+  letter-spacing: 1px;
+  color: #fff;
+  font-size: 1.3rem;
+  margin-left: 0.5rem;
 }
