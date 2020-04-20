@@ -5,9 +5,9 @@
     </div>
     <div class="searchFilter__main-input">
       <input
-        [value]="selectedCountryname"
+        [(value)]="selectedCountryname"
         placeholder="Search for your Country"
-        (change)="onChangeSearchCountry($event)"
+        (keyup)="onChangeSearchCountry($event)"
       />
     </div>
   </div>
@@ -16,12 +16,21 @@
       class="searchFilter__overlay"
       (click)="showCountryList = showCountryList != showCountryList"
     ></div>
+    <div *ngIf="searchCountryList.length > 0">
+      <li
+        class="searchFilter__country-item"
+        *ngFor="let countryItem of searchCountryList"
+        (click)="selectFilterCountryName(countryItem)"
+      >
+        <img [src]="countryItem.flag" [alt]="countryItem.name" />
+        <span class="searchFilter__country-name">{{ countryItem?.name }}</span>
+      </li>
+    </div>
     <li
       class="searchFilter__country-item"
-      *ngFor="let countryItem of searchCountryList"
+      *ngIf="searchCountryList.length === 0"
     >
-      <img [src]="countryItem.flag" [alt]="countryItem.name" />
-      <span class="searchFilter__country-name">{{ countryItem?.name }}</span>
+      No Match
     </li>
   </ul>
 </div>

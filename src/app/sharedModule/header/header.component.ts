@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output, Input } from "@angular/core";
 import { Router } from "@angular/router";
+import { CountrylistService } from "src/app/Services/Country-list/Country-list-service.service";
 
 @Component({
   selector: "app-header",
@@ -7,20 +8,14 @@ import { Router } from "@angular/router";
   styleUrls: ["./Header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
-  menuOptions = [
-    { iconName: "home", displayName: "Home", redirectUrl: "/" },
-    { iconName: "person", displayName: "About", redirectUrl: "about" },
-    { iconName: "account_box", displayName: "Contact", redirectUrl: "contact" },
-  ];
-  constructor(private router: Router) {}
+  countryNameFlag: Object = {};
+  constructor(private countryService: CountrylistService) {}
+
   @Output() changeThemeEventEmitter = new EventEmitter<string>();
-  ngOnInit() {}
-
-  navigateToMenu(menuOption) {
-    this.router.navigate([menuOption.redirectUrl]);
-  }
-
-  changeThemeToggle(themeName) {
-    this.changeThemeEventEmitter.emit(themeName);
+  ngOnInit() {
+    this.countryService.selectedCountry.subscribe((res: Object) => {
+      this.countryNameFlag = res;
+      console.log("this.countryNameFlag--", this.countryNameFlag);
+    });
   }
 }

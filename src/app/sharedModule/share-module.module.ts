@@ -5,11 +5,13 @@ import { SearchFilterComponent } from "./SearchFilter/SearchFilter.component";
 import { CoronaMatTableComponent } from "./corona-mat-table/corona-mat-table.component";
 import { MaterialModule } from "./material-module.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { CardStatsComponent } from "./card-stats/card-stats.component";
 
 const ImportExportComponent = [
   HeaderComponent,
   SearchFilterComponent,
   CoronaMatTableComponent,
+  CardStatsComponent,
 ];
 @NgModule({
   declarations: ImportExportComponent,

@@ -19,12 +19,9 @@
     </div>
     <ul class="header__main-world d-flex align-text-center">
       <div class="header__main-world-icon">
-        <img
-          src="../../../assets/Image/globeIcon.jpg"
-          class="img-responsive img-round"
-        />
+        <img [src]="countryNameFlag.flag" class="img-responsive img-round" />
       </div>
-      <div class="header__main-text fw-400">World</div>
+      <div class="header__main-text fw-400">{{ countryNameFlag.name }}</div>
     </ul>
   </div>
 </header>

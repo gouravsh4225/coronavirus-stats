@@ -41,7 +41,35 @@ export class HomeComponent implements OnInit {
         this.loadingState(false);
         this.anyErrorOccured = false;
         this.allWorldStatsCopy.push(res);
-        this.allWorldStats = res;
+        // this.allWorldStats = res;
+        let { total_cases, new_cases, total_deaths, total_recovered } = res;
+        for (const worldStat in {
+          total_cases,
+          new_cases,
+          total_deaths,
+          total_recovered,
+        }) {
+          let newObject = {
+            name: "",
+            counts: 0,
+          };
+          if (worldStat === "total_cases") {
+            newObject.name = "Cases";
+            newObject.counts = total_cases;
+          } else if (worldStat === "new_cases") {
+            newObject.name = "New Cases";
+            newObject.counts = new_cases;
+          } else if (worldStat === "total_deaths") {
+            newObject.name = "Deaths";
+            newObject.counts = total_deaths;
+          } else if (worldStat === "total_recovered") {
+            newObject.name = "Recovered";
+            newObject.counts = total_recovered;
+          }
+          this.allWorldStats.push(newObject);
+          console.log(worldStat, "worldStat", res[worldStat], "res[worldStat]");
+        }
+        console.log("allWorldStats", this.allWorldStats);
       },
       (error) => {
         this.anyErrorOccured = false;
@@ -69,7 +97,6 @@ export class HomeComponent implements OnInit {
       (res: any) => {
         this.allWorldList = res;
         this.countryListService.getCountryList(res);
-        console.log("res---", res);
       },
       (error) => {
         console.log("error");

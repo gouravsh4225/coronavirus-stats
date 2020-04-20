@@ -1,11 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule }    from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DefaultLayoutModule } from './Default-Layout/default-layout/default-layout.module';
-import {ShareModule} from './sharedModule/share-module.module';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { DefaultLayoutModule } from "./Default-Layout/default-layout/default-layout.module";
+import { ShareModule } from "./sharedModule/share-module.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,9 +15,9 @@ import {ShareModule} from './sharedModule/share-module.module';
     BrowserAnimationsModule,
     DefaultLayoutModule,
     ShareModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

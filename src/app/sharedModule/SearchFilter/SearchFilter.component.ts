@@ -42,4 +42,10 @@ export class SearchFilterComponent implements OnInit {
       item.name.toLowerCase().includes(filterValue.toLowerCase())
     );
   }
+
+  selectFilterCountryName(country) {
+    this.selectedCountryname = country.name;
+    this.showCountryList = !this.showCountryList;
+    this.getCountryService.selectCountryNext(country);
+  }
 }
